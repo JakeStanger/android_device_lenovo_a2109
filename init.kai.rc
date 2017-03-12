@@ -11,10 +11,10 @@ import init.power.kai.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
-    export LD_SHIM_LIBS /system/vendor/lib/hw/camera.vendor.tegra.so|libkaicompat.so:/system/vendor/lib/hw/audio_policy.vendor.tegra.so|libkaicompat.so:/system/vendor/lib/libnvcap_video.so|libkaicompat.so:/system/vendor/lib/libnvwinsys.so|libkaicompat.so:/system/vendor/lib/hw/sensors.tegra.so|libkaicompat.so:/system/vendor/lib/libnvomxadaptor.so|libkaicompat.so:
+    export LD_SHIM_LIBS libkaicompat.so:/system/vendor/lib/hw/sensors.tegra.so|libkaicompat.so:
 
 on init
-    export LD_SHIM_LIBS /system/vendor/lib/hw/camera.vendor.tegra.so|libkaicompat.so:/system/vendor/lib/hw/audio_policy.vendor.tegra.so|libkaicompat.so:/system/vendor/lib/libnvcap_video.so|libkaicompat.so:/system/vendor/lib/libnvwinsys.so|libkaicompat.so:/system/vendor/lib/hw/sensors.tegra.so|libkaicompat.so:/system/vendor/lib/libnvomxadaptor.so|libkaicompat.so:
+    export LD_SHIM_LIBS libkaicompat.so:/system/vendor/lib/hw/sensors.tegra.so|libkaicompat.so:
 
     # support legacy paths
     symlink /sdcard /mnt/sdcard
@@ -37,10 +37,6 @@ on post-fs-data
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
     mkdir /data/misc/dhcp 0770 dhcp dhcp
     chown dhcp dhcp /data/misc/dhcp
-
-# &*&*&*cj1_mod: for CL2-N
-    mkdir /data/nvcam 0660 system system
-# &*&*&*cj2_mod: for CL2-N
 
     mkdir /data/misc/wminput 0776 system system
 

@@ -50,17 +50,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp
 
-# Debugging options
-#PRODUCT_PROPERTY_OVERRIDES += \
-#    ro.adb.secure=0 \
-#    ro.secure=0 \
-#    ro.debuggable=1 \
-#    ro.kernel.qemu=1 # This boots in emulator mode, without EGL
-
-# Camera
-PRODUCT_PROPERTY_OVERRIDES += \
-    camera2.portability.force_api=1
-
 include frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
@@ -101,7 +90,6 @@ PRODUCT_PACKAGES += \
 
 # Wrappers
 PRODUCT_PACKAGES += \
-    camera.tegra \
     libkaicompat \
     libdgv1 \
     libstagefrighthw \
