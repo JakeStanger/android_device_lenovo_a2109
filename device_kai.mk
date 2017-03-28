@@ -91,7 +91,6 @@ PRODUCT_PACKAGES += \
 # Wrappers
 PRODUCT_PACKAGES += \
     libkaicompat \
-    libdgv1 \
     libstagefrighthw \
     libgpsd-compat \
     libstlport

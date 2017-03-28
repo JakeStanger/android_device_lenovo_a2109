@@ -27,7 +27,7 @@ RECOVERY_FSTAB_VERSION := 2
 # inherit from the proprietary version
 -include vendor/lenovo/kai/BoardConfigVendor.mk
 
-TARGET_BOARD_PLATFORM := tegra
+TARGET_BOARD_PLATFORM := tegra3
 TARGET_TEGRA_VERSION := t30
 
 TARGET_CPU_ABI := armeabi-v7a
@@ -50,7 +50,9 @@ TARGET_PREBUILT_KERNEL := device/lenovo/kai/kernel
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 671088640
 # System partition might be too small, if so, disable journaling on system.img to save space.
 BOARD_SYSTEMIMAGE_JOURNAL_SIZE := 0
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 805306368
+BOARD_CACHEIMAGE_PARTITION_SIZE := 805306368
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 14088667136
+
 BOARD_FLASH_BLOCK_SIZE := 4096
 
 BOARD_HAVE_WIFI := true
@@ -90,9 +92,10 @@ BOARD_HAVE_PRE_KITKAT_AUDIO_BLOB := true
 # frameworks/native ba3877845ec7b34fd13393aeed7ad74dcb727a4c:
 BOARD_HAVE_PRE_KITKAT_AUDIO_POLICY_BLOB := true
 USE_LEGACY_AUDIO_POLICY := true
-COMMON_GLOBAL_CFLAGS += -DMR0_AUDIO_BLOB
+
+#COMMON_GLOBAL_CFLAGS += -DMR0_AUDIO_BLOB
 # Include for MR0 audio blob
-TARGET_SPECIFIC_HEADER_PATH := device/lenovo/kai/include
+#TARGET_SPECIFIC_HEADER_PATH := device/lenovo/kai/include
 
 # Marshmallow
 TARGET_NEEDS_TEXT_RELOCS_SUPPORT := true
