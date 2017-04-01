@@ -1,4 +1,0 @@
-$(call inherit-product, device/lenovo/kai/full_kai.mk)
-
-PRODUCT_NAME := aosp_kai
-

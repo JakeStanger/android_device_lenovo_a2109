@@ -3,10 +3,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
-# This directory did not exist, adapted from grouper proprietary files
+# Vendor blobs
 $(call inherit-product-if-exists, vendor/lenovo/kai/device-vendor.mk)
-
-# New arm-generic widevine
 $(call inherit-product-if-exists, vendor/widevine/arm-generic/widevine-vendor.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/lenovo/kai/overlay
@@ -100,50 +98,29 @@ PRODUCT_PACKAGES += \
 PRODUCT_TAGS += dalvik.gc.type-precise
 
 # A2109A specific config files
+# Audio config
 PRODUCT_COPY_FILES += \
-    device/lenovo/kai/lenovo-kai-proprietary/usr/idc/ft5x0x_ts.idc:system/usr/idc/ft5x0x_ts.idc \
-    device/lenovo/kai/lenovo-kai-proprietary/usr/idc/raydium_ts.idc:system/usr/idc/raydium_ts.idc \
-    device/lenovo/kai/lenovo-kai-proprietary/usr/idc/sensor00fn11.idc:system/usr/idc/sensor00fn11.idc \
-    device/lenovo/kai/lenovo-kai-proprietary/usr/keylayout/Bluetooth_00_06_66_42.kl:system/usr/keylayout/Bluetooth_00_06_66_42.kl \
-    device/lenovo/kai/lenovo-kai-proprietary/usr/keylayout/Vendor_044f_Product_d007.kl:system/usr/keylayout/Vendor_044f_Product_d007.kl \
-    device/lenovo/kai/lenovo-kai-proprietary/usr/keylayout/Vendor_046d_Product_c21e.kl:system/usr/keylayout/Vendor_046d_Product_c21e.kl \
-    device/lenovo/kai/lenovo-kai-proprietary/usr/keylayout/Vendor_057e_Product_0306.kl:system/usr/keylayout/Vendor_057e_Product_0306.kl \
-    device/lenovo/kai/lenovo-kai-proprietary/usr/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
-    device/lenovo/kai/lenovo-kai-proprietary/usr/keylayout/tegra-kbc.kl:system/usr/keylayout/tegra-kbc.kl \
+    device/lenovo/kai/audio/tiny_hw.xml:system/etc/tiny_hw.xml \
+    device/lenovo/kai/audio/audio_policy.conf:system/etc/audio_policy.conf
+
+PRODUCT_COPY_FILES += \
+    device/lenovo/kai/config/ft5x0x_ts.idc:system/usr/idc/ft5x0x_ts.idc \
+    device/lenovo/kai/config:system/usr/idc/raydium_ts.idc \
+    device/lenovo/kai/config:system/usr/idc/sensor00fn11.idc \
+    device/lenovo/kai/config/keylayout/Bluetooth_00_06_66_42.kl:system/usr/keylayout/Bluetooth_00_06_66_42.kl \
+    device/lenovo/kai/config/keylayout/Vendor_044f_Product_d007.kl:system/usr/keylayout/Vendor_044f_Product_d007.kl \
+    device/lenovo/kai/config/keylayout/Vendor_046d_Product_c21e.kl:system/usr/keylayout/Vendor_046d_Product_c21e.kl \
+    device/lenovo/kai/config/keylayout/Vendor_057e_Product_0306.kl:system/usr/keylayout/Vendor_057e_Product_0306.kl \
+    device/lenovo/kai/config/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
+    device/lenovo/kai/config/keylayout/tegra-kbc.kl:system/usr/keylayout/tegra-kbc.kl \
     device/lenovo/kai/config/gps.xml:system/etc/gps/gps.xml \
     device/lenovo/kai/config/media_profiles.xml:system/etc/media_profiles.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
     device/lenovo/kai/config/media_codecs.xml:system/etc/media_codecs.xml \
-    device/lenovo/kai/config/audio_policy.conf:system/etc/audio_policy.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/etc/asound.conf:system/etc/asound.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/etc/enctune.conf:system/etc/enctune.conf \
-    device/lenovo/kai/config/nvaudio_conf.xml:system/etc/nvaudio_conf.xml \
-    device/lenovo/kai/audio/tiny_hw.xml:system/etc/tiny_hw.xml \
-    device/lenovo/kai/config/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/surround71.conf:system/usr/share/alsa/pcm/surround71.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/surround51.conf:system/usr/share/alsa/pcm/surround51.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/surround50.conf:system/usr/share/alsa/pcm/surround50.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/surround41.conf:system/usr/share/alsa/pcm/surround41.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/surround40.conf:system/usr/share/alsa/pcm/surround40.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/side.conf:system/usr/share/alsa/pcm/side.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/rear.conf:system/usr/share/alsa/pcm/rear.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/modem.conf:system/usr/share/alsa/pcm/modem.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/iec958.conf:system/usr/share/alsa/pcm/iec958.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/front.conf:system/usr/share/alsa/pcm/front.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/dsnoop.conf:system/usr/share/alsa/pcm/dsnoop.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/dpl.conf:system/usr/share/alsa/pcm/dpl.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/dmix.conf:system/usr/share/alsa/pcm/dmix.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/default.conf:system/usr/share/alsa/pcm/default.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/center_lfe.conf:system/usr/share/alsa/pcm/center_lfe.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/cards/aliases.conf:system/usr/share/alsa/cards/aliases.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/alsa.conf:system/usr/share/alsa/alsa.conf
-
-# Miscellaneous
-PRODUCT_COPY_FILES += \
-    device/lenovo/kai/lenovo-kai-proprietary/media/audio/notifications/bootsound_depop.wav:system/media/audio/notifications/bootsound_depop.wav \
-    device/lenovo/kai/lenovo-kai-proprietary/media/audio/notifications/bootsound.wav:system/media/audio/notifications/bootsound.wav
+    device/lenovo/kai/config/enctune.conf:system/etc/enctune.conf \
+    device/lenovo/kai/config/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
 
 # Add permissions, copied straight from grouper
 PRODUCT_COPY_FILES += \
