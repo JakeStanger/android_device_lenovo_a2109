@@ -74,6 +74,12 @@ TARGET_NO_BOOTLOADER := true
 
 BOARD_USES_GENERIC_INVENSENSE := false
 
+# Audio Options
+BOARD_USES_GENERIC_AUDIO := false
+
+# Marshmallow
+TARGET_NEEDS_TEXT_RELOCS_SUPPORT := true
+
 # Kai HAL libraries
 BOARD_HAL_STATIC_LIBRARIES := \
     libdumpstate.kai
@@ -83,22 +89,6 @@ BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_BLUEDROID_VENDOR_CONF := device/lenovo/kai/bluetooth/vnd_kai.txt
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/lenovo/kai/bluetooth
-
-### Defines for legacy blobs
-# Audio Options
-BOARD_USES_GENERIC_AUDIO := false
-# frameworks/native 43022aef331c665ebd9484893b0b0ebc2c523452:
-BOARD_HAVE_PRE_KITKAT_AUDIO_BLOB := true
-# frameworks/native ba3877845ec7b34fd13393aeed7ad74dcb727a4c:
-BOARD_HAVE_PRE_KITKAT_AUDIO_POLICY_BLOB := true
-USE_LEGACY_AUDIO_POLICY := true
-
-#COMMON_GLOBAL_CFLAGS += -DMR0_AUDIO_BLOB
-# Include for MR0 audio blob
-#TARGET_SPECIFIC_HEADER_PATH := device/lenovo/kai/include
-
-# Marshmallow
-TARGET_NEEDS_TEXT_RELOCS_SUPPORT := true
 
 # Use Cortex A9 optimizations for A7
 USE_ALL_OPTIMIZED_STRING_FUNCS := true

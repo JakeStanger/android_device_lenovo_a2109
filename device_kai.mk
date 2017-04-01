@@ -63,6 +63,7 @@ PRODUCT_PACKAGES += \
 
 
 PRODUCT_PACKAGES += \
+    audio.primary.tegra3 \
     audio.a2dp.default \
     audio.usb.default \
     audio.r_submix.default \
@@ -119,6 +120,7 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/lenovo-kai-proprietary/etc/asound.conf:system/etc/asound.conf \
     device/lenovo/kai/lenovo-kai-proprietary/etc/enctune.conf:system/etc/enctune.conf \
     device/lenovo/kai/config/nvaudio_conf.xml:system/etc/nvaudio_conf.xml \
+    device/lenovo/kai/audio/tiny_hw.xml:system/etc/tiny_hw.xml \
     device/lenovo/kai/config/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf \
     device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/surround71.conf:system/usr/share/alsa/pcm/surround71.conf \
     device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/surround51.conf:system/usr/share/alsa/pcm/surround51.conf \
