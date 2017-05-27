@@ -2,43 +2,25 @@
   <remote name="nvidia" fetch="git://nv-tegra.nvidia.com" />
   <remote name="linaro" fetch="http://git.linaro.org" />
 
-  <project name="PJBrs/android_device_lenovo_kai" path="device/lenovo/kai" remote="github" revision="cm-13.0" />
+  <project name="PJBrs/android_device_lenovo_a2109" path="device/lenovo/a2109" remote="github" revision="cm-13.0" />
+  <project path="hardware/nvidia/tegra3" name="Unlegacy-Android/android_hardware_nvidia_tegra3" remote="github" revision="stable" groups="tegra3" />
+  <project path="kernel/nvidia/tegra3" name="Unlegacy-Android/android_kernel_nvidia_tegra3" remote="github" revision="stable" groups="kernel,tegra3" />
 
 <!-- frameworks/base, for rotation lock button -->
   <remove-project name="LineageOS/android_frameworks_base" />
   <project name="PJBrs/platform_frameworks_base" path="frameworks/base" remote="github" revision="cm-13.0" />
 
-<!-- frameworks/native, for camera compatibility patch -->
-  <remove-project name="LineageOS/android_frameworks_native" />
-  <project path="frameworks/native" name="PJBrs/platform_frameworks_native" remote="github" revision="cm-13.0" />
-
-<!-- frameworks/av, for pre-kitkat audio blob and video recording workaround -->
-  <remove-project name="LineageOS/android_frameworks_av" />
-  <project path="frameworks/av" name="PJBrs/platform_frameworks_av" remote="github" revision="cm-13.0" />
-
-<!-- libhardware, MR0 audio blobs, needed by stock lenovo audio policy -->
-  <remove-project name="LineageOS/android_hardware_libhardware_legacy" />
-  <project name="PJBrs/platform_hardware_libhardware_legacy" path="hardware/libhardware_legacy" remote="github" revision="cm-13.0" />
-
-<!-- system/core, a patch that adds vector symbols -->
-  <remove-project name="LineageOS/android_system_core" />
-  <project path="system/core" name="PJBrs/platform_system_core" remote="github" revision="cm-13.0" groups="pdk" />
-
 <!-- bionic, add patch to support text relocations /-->
   <remove-project name="LineageOS/android_bionic" />
   <project path="bionic" name="PJBrs/android_bionic" groups="pdk" />
 
-<!-- Kernel -->
-  <project path="kernel/lenovo/kai" name="PJBrs/android_kernel_lenovo_kai" revision="A2109-linux-tegra-nv-3.4-unlegacy" remote="github" />
-
-<!-- tinyalsa, for audio hal -->
-  <remove-project name="LineageOS/android_external_tinyalsa" />
-  <project path="external/tinyalsa" name="PJBrs/platform_external_tinyalsa" remote="github" revision="cm-13.0" />
-
 <!-- stlport, for gps -->
   <project path="external/stlport" name="Unlegacy-Android/android_external_stlport" remote="github" revision="aosp-6.0" groups="pdk" />
 
-<!-- widevine -->
+<!-- vendor -->
+  <project path="vendor/broadcom" name="Unlegacy-Android/proprietary_vendor_broadcom" remote="github" revision="aosp-6.0" groups="vendor,broadcom" />
+  <project path="vendor/lenovo" name="Unlegacy-Android/proprietary_vendor_lenovo" remote="github" revision="aosp-6.0" groups="vendor,lenovo" />
+  <project path="vendor/nvidia" name="Unlegacy-Android/proprietary_vendor_nvidia" remote="github" revision="aosp-6.0" groups="vendor,nvidia" />
   <project path="vendor/widevine" name="Unlegacy-Android/proprietary_vendor_widevine" remote="github" revision="aosp-6.0" />
 
 </manifest>

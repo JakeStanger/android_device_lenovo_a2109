@@ -1,15 +1,2 @@
-allow surfaceflinger { knv_device }:chr_file rw_file_perms;
-allow surfaceflinger { sysfs_devices_system_cpu sysfs_devices_tegradc sysfs_devices_nvavp }:file rw_file_perms;
-allow surfaceflinger sysfs_devices_tegradc:dir r_dir_perms;
-allow surfaceflinger sysfs_devices_tegradc:lnk_file { open getattr read };
-allow surfaceflinger sysfs_devices_system_cpu:dir w_dir_perms;
 allow surfaceflinger sysfs_didim:file rw_file_perms;
-
-# For text relocations
-allow surfaceflinger system_file:file execmod;
-
-# Don't know what this is for
-allow surfaceflinger mnt_user_file:dir search;
-allow surfaceflinger storage_file:dir search;
-allow surfaceflinger storage_file:lnk_file read;
 

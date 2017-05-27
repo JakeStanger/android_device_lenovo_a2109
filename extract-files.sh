@@ -16,7 +16,7 @@
 
 LOCAL_PATH=$(/usr/bin/pwd)
 
-DEVICE=kai
+DEVICE=a2109
 MANUFACTURER=lenovo
 
 BASE=$LOCAL_PATH/$MANUFACTURER-$DEVICE-proprietary

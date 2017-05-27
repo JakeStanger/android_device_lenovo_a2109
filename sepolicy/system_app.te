@@ -1,4 +1,0 @@
-allow system_app { knv_device gpu_device }:chr_file rw_file_perms;
-
-# For text relocations
-allow system_app system_file:file execmod;

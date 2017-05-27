@@ -25,17 +25,9 @@ USE_CAMERA_STUB := false
 RECOVERY_FSTAB_VERSION := 2
 
 # inherit from the proprietary version
--include vendor/lenovo/kai/BoardConfigVendor.mk
+-include vendor/lenovo/a2109/BoardConfigVendor.mk
 
-TARGET_BOARD_PLATFORM := tegra3
-TARGET_TEGRA_VERSION := t30
-
-TARGET_CPU_ABI := armeabi-v7a
-TARGET_CPU_ABI2 := armeabi
-TARGET_CPU_SMP := true
-TARGET_ARCH := arm
-TARGET_ARCH_VARIANT := armv7-a-neon
-TARGET_CPU_VARIANT := cortex-a9
+include hardware/nvidia/tegra3/BoardConfigCommon.mk
 
 TARGET_NO_RADIOIMAGE := true
 
@@ -45,8 +37,11 @@ TARGET_BOOTLOADER_BOARD_NAME := a2109a
 BOARD_KERNEL_CMDLINE := androidboot.selinux=enforcing androidboot.hardware=kai
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
+TARGET_KERNEL_CONFIG := cl2n_defconfig
+TARGET_KERNEL_SOURCE := kernel/nvidia/tegra3
+KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.8/bin
+KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
 
-TARGET_PREBUILT_KERNEL := device/lenovo/kai/kernel
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 671088640
 # System partition might be too small, if so, disable journaling on system.img to save space.
 BOARD_SYSTEMIMAGE_JOURNAL_SIZE := 0
@@ -68,7 +63,10 @@ WIFI_DRIVER_FW_PATH_STA     := "/vendor/firmware/fw_bcmdhd.bin"
 WIFI_DRIVER_FW_PATH_AP      := "/vendor/firmware/fw_bcmdhd_apsta.bin"
 
 TARGET_BOOTLOADER_BOARD_NAME := kai
-#TARGET_BOARD_INFO_FILE := device/lenovo/kai/board-info.txt
+#TARGET_BOARD_INFO_FILE := device/lenovo/a2109/board-info.txt
+
+# assert
+TARGET_OTA_ASSERT_DEVICE := kai,a2109
 
 TARGET_NO_BOOTLOADER := true
 
@@ -80,15 +78,11 @@ BOARD_USES_GENERIC_AUDIO := false
 # Marshmallow
 TARGET_NEEDS_TEXT_RELOCS_SUPPORT := true
 
-# Kai HAL libraries
-BOARD_HAL_STATIC_LIBRARIES := \
-    libdumpstate.kai
-
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
-BOARD_BLUEDROID_VENDOR_CONF := device/lenovo/kai/bluetooth/vnd_kai.txt
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/lenovo/kai/bluetooth
+BOARD_BLUEDROID_VENDOR_CONF := device/lenovo/a2109/bluetooth/vnd_a2109.txt
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/lenovo/a2109/bluetooth
 
 # Use Cortex A9 optimizations for A7
 USE_ALL_OPTIMIZED_STRING_FUNCS := true
@@ -102,7 +96,8 @@ ifneq ($(HAVE_NVIDIA_PROP_SRC),false)
 -include vendor/nvidia/build/definitions.mk
 endif
 
-BOARD_SEPOLICY_DIRS := \
-        device/lenovo/kai/sepolicy
+# Security
+BOARD_SEPOLICY_DIRS += \
+        device/lenovo/a2109/sepolicy
 
-TARGET_RECOVERY_FSTAB = device/lenovo/kai/fstab.kai
+TARGET_RECOVERY_FSTAB = device/lenovo/a2109/rootdir/fstab.kai

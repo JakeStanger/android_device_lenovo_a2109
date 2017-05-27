@@ -1,6 +1,3 @@
-type sysfs_devices_tegradc, fs_type, sysfs_type;
-# This next one from unlegacy:
-type sysfs_devices_nvavp, fs_type, sysfs_type;
 type sysfs_firmware_writable, fs_type, sysfs_type;
 type sysfs_gps_writable, fs_type, sysfs_type;
 

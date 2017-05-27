@@ -1,2 +1,0 @@
-# text relocations
-allow radio system_file:file execmod;
