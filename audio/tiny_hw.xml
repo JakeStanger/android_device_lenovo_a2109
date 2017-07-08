@@ -26,8 +26,9 @@
     <!-- Headphone and headset output -->
     <device name="headphone" alsa_card="1">
         <path name="on">
-	    <ctl name="Headphone Driver volume switch" val="1"/>
-	    <ctl name="MiniDSP SRS mode" val="2" />
+            <ctl name="Speaker Amplifier Volume" val="0"/>
+            <ctl name="Headphone Driver volume switch" val="1"/>
+            <ctl name="MiniDSP SRS mode" val="2" />
         </path>
         <path name="off">
 	    <ctl name="Headphone Driver volume switch" val="0"/>
@@ -37,15 +38,15 @@
     <!-- This is headset mic, not output -->
     <device name="headset" alsa_card="1">
         <path name="on">
-           <ctl name="PCM Capture Volume" val="24"/>
-           <ctl name="Left Input Mixer IN1L Switch" val="1"/>
-           <ctl name="Left Input Mixer CM1L Switch" val="1"/>
-           <ctl name="MICBIAS_EXT ON" val="1"/>
+            <ctl name="PCM Capture Volume" val="24"/>
+            <ctl name="Left Input Mixer IN1L Switch" val="1"/>
+            <ctl name="Left Input Mixer CM1L Switch" val="1"/>
+            <ctl name="MICBIAS_EXT ON" val="1"/>
         </path>
         <path name="off">
-           <ctl name="Left Input Mixer IN1L Switch" val="0"/>
-           <ctl name="Left Input Mixer CM1L Switch" val="0"/>
-           <ctl name="MICBIAS_EXT ON" val="0"/> 
+            <ctl name="Left Input Mixer IN1L Switch" val="0"/>
+            <ctl name="Left Input Mixer CM1L Switch" val="0"/>
+            <ctl name="MICBIAS_EXT ON" val="0"/>
         </path>
     </device>
 
