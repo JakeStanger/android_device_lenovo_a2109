@@ -56,6 +56,9 @@ WITH_DEXPREOPT_BOOT_IMG_ONLY := true
 # Configure jemalloc for low-memory
 MALLOC_SVELTE := true
 
+# Use clang platform builds
+USE_CLANG_PLATFORM_BUILD := true
+
 BOARD_HAVE_WIFI := true
 # Wifi related defines
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
