@@ -50,6 +50,9 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 14088667136
 
 BOARD_FLASH_BLOCK_SIZE := 4096
 
+# Only pre-optimize the boot image
+WITH_DEXPREOPT_BOOT_IMG_ONLY := true
+
 # Configure jemalloc for low-memory
 MALLOC_SVELTE := true
 
