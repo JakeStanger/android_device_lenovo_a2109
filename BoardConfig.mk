@@ -59,6 +59,9 @@ MALLOC_SVELTE := true
 # Use clang platform builds
 USE_CLANG_PLATFORM_BUILD := true
 
+# Set HAL1 to fix loading the camera, due to old libnvodm_{query,imager}.so
+TARGET_HAS_LEGACY_CAMERA_HAL1 := true
+
 BOARD_HAVE_WIFI := true
 # Wifi related defines
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211

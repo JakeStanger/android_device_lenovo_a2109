@@ -49,6 +49,11 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     lights.kai
 
+# Camera HAL
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    media.stagefright.legacyencoder=true \
+    media.stagefright.less-secure=true
+
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     make_ext4fs \
