@@ -6,9 +6,3 @@ allow init sysfs_gps_writable:file write;
 
 # Allow debugfs to mount
 allow init debugfs:dir mounton;
-
-# Accept shim libs
-allow init surfaceflinger:process noatsecure;
-allow init mediaserver:process noatsecure;
-allow init zygote:process noatsecure;
-
