@@ -1,0 +1,14 @@
+# mount point	fstype		device
+
+/system         ext4            /dev/block/platform/sdhci-tegra.3/by-name/APP
+/cache          ext4            /dev/block/platform/sdhci-tegra.3/by-name/CAC
+/data           ext4            /dev/block/platform/sdhci-tegra.3/by-name/UDA		length=-32768
+
+/recovery       emmc            /dev/block/platform/sdhci-tegra.3/by-name/SOS
+/boot           emmc            /dev/block/platform/sdhci-tegra.3/by-name/LNX
+/misc           emmc            /dev/block/platform/sdhci-tegra.3/by-name/MSC
+/staging        emmc            /dev/block/platform/sdhci-tegra.3/by-name/USP
+/preload        ext4            /dev/block/platform/sdhci-tegra.3/by-name/PRE
+
+/external_sd	auto		/dev/block/platform/sdhci-tegra.0/by-num/p1		flags=display="Micro SDcard";storage;wipeingui;removable
+/usb-otg auto /devices/platform/tegra-ehci.0/usb2 flags=display="USB-OTG";storage;wipeingui;removable
